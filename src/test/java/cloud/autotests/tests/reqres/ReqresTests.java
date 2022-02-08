@@ -17,7 +17,6 @@ public class ReqresTests {
     @BeforeAll
     static void setUp() {
         RestAssured.baseURI = "https://reqres.in/";
-        Configuration.baseUrl = "https://reqres.in/";
 
     }
 

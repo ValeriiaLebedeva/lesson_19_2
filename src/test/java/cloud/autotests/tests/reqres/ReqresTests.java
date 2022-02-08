@@ -1,5 +1,6 @@
 package cloud.autotests.tests.reqres;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,10 +13,14 @@ import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
 public class ReqresTests {
+
     @BeforeAll
     static void setUp() {
         RestAssured.baseURI = "https://reqres.in/";
+        Configuration.baseUrl = "https://reqres.in/";
+
     }
+
 
 
     @Test

@@ -1,6 +1,5 @@
 package cloud.autotests.tests.reqres;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,8 +18,6 @@ public class ReqresTests {
         RestAssured.baseURI = "https://reqres.in/";
 
     }
-
-
 
     @Test
     void singleUserNotFound() {

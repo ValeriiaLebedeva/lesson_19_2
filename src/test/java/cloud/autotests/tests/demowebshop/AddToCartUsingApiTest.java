@@ -1,6 +1,7 @@
 package cloud.autotests.tests.demowebshop;
 
 import cloud.autotests.config.demowebshop.AppConfig;
+import cloud.autotests.tests.TestBase;
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -17,15 +18,11 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class AddToCartUsingApiTest {
+public class AddToCartUsingApiTest extends TestBase {
 
     public static AppConfig webShopConfig = ConfigFactory.create(AppConfig.class, System.getProperties());
 
-    @BeforeAll
-    static void configureBaseUrl() {
-        RestAssured.baseURI = webShopConfig.apiUrl();
-        Configuration.baseUrl = webShopConfig.webUrl();
-    }
+
 
     Integer getItemsCountFromCart(String value) {
         if (value != null) {

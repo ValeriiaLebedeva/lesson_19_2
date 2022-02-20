@@ -2,11 +2,8 @@ package cloud.autotests.tests.demowebshop;
 
 import cloud.autotests.config.demowebshop.AppConfig;
 import cloud.autotests.tests.TestBase;
-import com.codeborne.selenide.Configuration;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.aeonbits.owner.ConfigFactory;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 

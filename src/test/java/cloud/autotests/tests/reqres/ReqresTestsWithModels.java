@@ -21,8 +21,6 @@ public class ReqresTestsWithModels {
 
     @Test
     void singleUserNotFound() {
-        // https://reqres.in/api/users/23
-        //     404
 
         given()
                 .filter(new AllureRestAssured())
@@ -36,12 +34,6 @@ public class ReqresTestsWithModels {
 
     @Test
     void listResourceWithSpecWithGroovy() {
-        // https://reqres.in/api/unknown
-
-        //     "support": {
-        //        "url": "https://reqres.in/#support-heading",
-        //     200
-
 
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -106,14 +98,6 @@ public class ReqresTestsWithModels {
 
     @Test
     void registerUnsuccessful() {
-        // https://reqres.in/api/register
-        /*
-            {
-                 "email": "sydney@fife"
-            }
-         */
-        //     "error": "Missing password"
-        //     400
 
         RegisterUser registerUserWithoutPass = new RegisterUser();
         registerUserWithoutPass.setEmail("eve.holt@reqres.in");

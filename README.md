@@ -1,44 +1,61 @@
-# Project in Allure TestOps with manual & automated tests
-<a target="_blank" href="https://allure.autotests.cloud/project/%s">allure.autotests.cloud/project/%s</a> (ask admin@qa.guru for access)
+# API autotests
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+### GET and POST request tests were added for: 
+
+#### 
+### https://reqres.in/
+
+### Adding item to cart using API and comparing it with UI cart item number test was added for:
+### http://demowebshop.tricentis.com/
 
 
 # USAGE examples
 
-### For run remote tests need fill remote.properties or to pass value:
+### Run tests from terminal:
 
-* browser (default chrome)
-* browserVersion (default 89.0)
-* browserSize (default 1920x1080)
-* browserMobileView (mobile device name, for example iPhone X)
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
-
-
-Run tests with filled remote.properties:
 ```bash
 gradle clean test
 ```
 
-Run tests with not filled remote.properties:
-```bash
-gradle clean -DremoteDriverUrl=https://%s:%s@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
-```
+##### (Don't forget to add the configuration files:
+##### - src/test/resources/config/app.properties
+##### see congig file example here: src/test/resources/config/demowebshop/app_example.properties)
 
-Serve report:
+
+### Serve report:
+
 ```bash
 allure serve build/allure-results
 ```
 
 
-###### For further development there are some example tests in src/test/java/cloud.autotests/tests/demowebshop
-* remove @Disabled("...") annotation to run tests
-```bash
-gradle clean demowebshop
-```
+# Jenkins job
+### https://jenkins.autotests.cloud/job/ValeriiaLebedeva_lesson19_2/
 
-:heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
-:blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
+#### How to build project:
+#### 1. Click on the 'Build now'
+
+# Allure report examples
+
+<p align="center">
+  <img src="images/allurereport4.png">
+</p>
+
+<p align="center">
+  <img src="images/reqres1.png">
+</p>
+
+#### How Request looks in allure report:
+<p align="center">
+  <img src="images/reqres2.png">
+</p>
+
+# Allure TestOps integration
+
+<p align="center">
+  <img src="images/testops1.png">
+</p>
+
+<p align="center">
+  <img src="images/testops2.png">
+</p>

@@ -7,7 +7,6 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
-
 import static cloud.autotests.filters.CustomLogFilter.customLogFilter;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -19,8 +18,6 @@ public class AddToCartUsingApiTest extends TestBase {
 
     public static AppConfig webShopConfig = ConfigFactory.create(AppConfig.class, System.getProperties());
 
-
-
     Integer getItemsCountFromCart(String value) {
         if (value != null) {
             return Integer.parseInt(value.substring(1, value.length() - 1));
@@ -28,10 +25,8 @@ public class AddToCartUsingApiTest extends TestBase {
         return 0;
     }
 
-
     @Test
     void checkCartNumberTest() {
-
         //Get cookie
         String authorizationCookie =
                 given()
@@ -48,23 +43,18 @@ public class AddToCartUsingApiTest extends TestBase {
                         .extract()
                         .cookie("NOPCOMMERCE.AUTH");
 
-
         //Open minimal content, because cookie can be set when site is opened
         open("/Themes/DefaultClean/Content/images/logo.png");
-
 
         //Set cookie to browser
         getWebDriver().manage().addCookie(
                 new Cookie("NOPCOMMERCE.AUTH", authorizationCookie));
 
-
         //Open cart page
         open("/cart");
 
-
         //Get item cart number before adding new item
         String cartItemNumber = $(".cart-qty").getText();
-
 
         //Add item to cart using api and check the new number is greater by 1 number before adding the item to cart
         Response response =
@@ -83,8 +73,5 @@ public class AddToCartUsingApiTest extends TestBase {
                         .extract().response();
 
         assertThat((String) response.path("updatetopcartsectionhtml")).isEqualTo("(" + (getItemsCountFromCart(cartItemNumber) + 1) + ")");
-
-
-
     }
 }

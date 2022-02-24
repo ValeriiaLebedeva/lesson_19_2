@@ -18,10 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReqresTestsWithModels {
 
-
     @Test
     void singleUserNotFound() {
-
         given()
                 .filter(new AllureRestAssured())
                 .when()
@@ -34,7 +32,6 @@ public class ReqresTestsWithModels {
 
     @Test
     void listResourceWithSpecWithGroovy() {
-
         given()
                 .filter(customLogFilter().withCustomTemplates())
                 .spec(request)
@@ -45,9 +42,7 @@ public class ReqresTestsWithModels {
                 .log().all()
                 .body("data.findAll{it.year>2002}.year.flatten()",
                         hasItem(2003));
-                ;
     }
-
 
     @Test
     void createUser() {
@@ -70,7 +65,6 @@ public class ReqresTestsWithModels {
 
         assertEquals(createUserRequest.getName(), response.getName());
         assertEquals(createUserRequest.getJob(), response.getJob());
-
     }
 
     @Test
